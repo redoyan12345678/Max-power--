@@ -1,0 +1,43 @@
+export interface User {
+  id: string;
+  name: string;
+  email: string; 
+  phone: string; 
+  avatar: string;
+  balance: number;
+  isActive: boolean;
+  referralCode: string;
+  referrerId?: string; 
+  role: 'user' | 'admin';
+  salaryEligible?: boolean;
+  joinedAt: number;
+  password?: string; // Stores password for login lookup
+}
+
+export interface ReferralTier {
+  level: number;
+  amount: number;
+  description: string;
+}
+
+export interface Transaction {
+  id: string;
+  userId: string;
+  type: 'activation' | 'withdrawal' | 'admin_add';
+  amount: number;
+  method: 'bkash' | 'nagad' | 'admin';
+  mobileNumber: string;
+  trxId?: string; 
+  status: 'pending' | 'approved' | 'rejected';
+  timestamp: number;
+}
+
+export enum ViewState {
+  AUTH = 'AUTH',
+  HOME = 'HOME',
+  WALLET = 'WALLET',
+  REFERRALS = 'REFERRALS',
+  PROFILE = 'PROFILE',
+  STRUCTURE = 'STRUCTURE',
+  ADMIN = 'ADMIN'
+}
